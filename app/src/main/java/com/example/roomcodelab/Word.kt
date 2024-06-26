@@ -1,4 +1,4 @@
-package com.example.roomcodelab.pojo
+package com.example.roomcodelab
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
