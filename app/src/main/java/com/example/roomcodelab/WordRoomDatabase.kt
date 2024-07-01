@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 @Database(entities = [Word::class], version = 1)
 abstract class WordRoomDatabase : RoomDatabase() {
 
+
     abstract fun wordDao(): WordDao
 
     companion object {
@@ -26,6 +27,7 @@ abstract class WordRoomDatabase : RoomDatabase() {
             context: Context,
             scope: CoroutineScope
         ): WordRoomDatabase {
+
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
@@ -39,6 +41,7 @@ abstract class WordRoomDatabase : RoomDatabase() {
                     .fallbackToDestructiveMigration()
                     .addCallback(WordDatabaseCallback(scope))
                     .build()
+
                 INSTANCE = instance
                 // return instance
                 instance
@@ -77,5 +80,6 @@ abstract class WordRoomDatabase : RoomDatabase() {
             word = Word("World!")
             wordDao.insert(word)
         }
+
     }
 }
